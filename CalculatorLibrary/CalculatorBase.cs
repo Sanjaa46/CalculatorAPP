@@ -4,11 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalculatorApp.Models
+namespace CalculatorLibrary
 {
+    /// <summary>
+    /// Abstract class for a calculator. Stores calculation results.
+    /// </summary>
     public abstract class CalculatorBase
     {
+        /// <summary>
+        /// Stores the result of calculations.
+        /// </summary>
         public double Result { get; protected set; }
     }
 }
+
 

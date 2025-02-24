@@ -1,6 +1,5 @@
 ﻿using System;
-using CalculatorApp.Core;
-using CalculatorApp.Models;
+using CalculatorLibrary
 
 namespace CalculatorApp
 {
