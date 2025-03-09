@@ -1,5 +1,5 @@
 ﻿using System;
-using CalculatorLibrary
+using CalculatorLibrary;
 
 namespace CalculatorApp
 {
