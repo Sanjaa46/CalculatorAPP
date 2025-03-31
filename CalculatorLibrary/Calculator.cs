@@ -1,19 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CalculatorLibrary
 {
     /// <summary>
-    /// A simple calculator that performs addition and subtraction.
+    /// A simple calculator that performs addition and subtraction, and includes memory storage.
     /// </summary>
     public class Calculator : CalculatorBase, ICalculations
     {
+        private List<double> _memoryList = new List<double>();
+
         /// <summary>
         /// Adds a number to the result.
         /// </summary>
         /// <param name="number">The number to add.</param>
         public void Add(double number)
         {
-            Result += number;
+            this.Result += number;
         }
 
         /// <summary>
@@ -22,36 +25,31 @@ namespace CalculatorLibrary
         /// <param name="number">The number to subtract.</param>
         public void Subtract(double number)
         {
-            Result -= number;
+            this.Result -= number;
         }
-    }
-
-    /// <summary>
-    /// Abstract class for a calculator. Stores calculation results.
-    /// </summary>
-    public abstract class CalculatorBase
-    {
-        /// <summary>
-        /// Stores the result of calculations.
-        /// </summary>
-        public double Result { get; set; }
-    }
-
-    /// <summary>
-    /// Interface for basic calculations.
-    /// </summary>
-    public interface ICalculations
-    {
-        /// <summary>
-        /// Adds a number to the result.
-        /// </summary>
-        /// <param name="number">The number to add.</param>
-        void Add(double number);
 
         /// <summary>
-        /// Subtracts a number from the result.
+        /// Stores a result in memory.
         /// </summary>
-        /// <param name="number">The number to subtract.</param>
-        void Subtract(double number);
+        /// <param name="result">The result to store.</param>
+        public void Store(double result)
+        {
+            _memoryList.Add(result);
+        }
+
+        /// <summary>
+        /// Recalls a result from memory.
+        /// </summary>
+        /// <param name="index">The index of the result to recall.</param>
+        /// <returns>The recalled result.</returns>
+        public double Recall(int index)
+        {
+            if (index < 0 || index >= _memoryList.Count)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), "Index must be within the bounds of the memory list.");
+            }
+            return _memoryList[index];
+        }
+
     }
 }
