@@ -49,6 +49,7 @@
             this.buttonEquals = new System.Windows.Forms.Button();
             this.memoryLabel = new System.Windows.Forms.Label();
             this.memoryListBox = new System.Windows.Forms.ListBox();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // displayTextBox
@@ -246,7 +247,7 @@
             // memoryLabel
             // 
             this.memoryLabel.AutoSize = true;
-            this.memoryLabel.Location = new System.Drawing.Point(12, 62);
+            this.memoryLabel.Location = new System.Drawing.Point(299, 12);
             this.memoryLabel.Name = "memoryLabel";
             this.memoryLabel.Size = new System.Drawing.Size(53, 15);
             this.memoryLabel.TabIndex = 30;
@@ -256,16 +257,27 @@
             // 
             this.memoryListBox.FormattingEnabled = true;
             this.memoryListBox.ItemHeight = 15;
-            this.memoryListBox.Location = new System.Drawing.Point(299, 12);
+            this.memoryListBox.Location = new System.Drawing.Point(299, 30);
             this.memoryListBox.Name = "memoryListBox";
-            this.memoryListBox.Size = new System.Drawing.Size(100, 289);
+            this.memoryListBox.Size = new System.Drawing.Size(100, 274);
             this.memoryListBox.TabIndex = 31;
+            this.memoryListBox.DoubleClick += new System.EventHandler(this.MemoryListBox_DoubleClick);
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(12, 62);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(42, 15);
+            this.statusLabel.TabIndex = 32;
+            this.statusLabel.Text = "Ready";
             // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 320);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.memoryListBox);
             this.Controls.Add(this.memoryLabel);
             this.Controls.Add(this.buttonEquals);
@@ -317,5 +329,6 @@
         private System.Windows.Forms.Button buttonEquals;
         private System.Windows.Forms.Label memoryLabel;
         private System.Windows.Forms.ListBox memoryListBox;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
